@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ProjectSTLP_App.testSTLP&apos; to &apos;TC01_SearchIDCardType&apos;&#x0D;&#x0A;- Original project: &apos;TEST_STLPAPP_PROJECT&apos;&#x0D;&#x0A;- Original element: &apos;ProjectSTLP_App.testSTLP&apos;&#x0D;&#x0A;- Renamed element: &apos;ProjectSTLP_App.TC01_SearchIDCardType&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;testSTLP&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;ProjectSTLP_App{testSTLP.java[testSTLP" matchStrategy="1" name="TC01_SearchIDCardType" qualified="false" references="true" similarDeclarations="false" stamp="1566204598698" textual="false" version="1.0"/>
+</session>

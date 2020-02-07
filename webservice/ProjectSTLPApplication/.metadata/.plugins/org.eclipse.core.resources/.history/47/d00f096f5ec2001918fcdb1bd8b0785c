@@ -1,0 +1,45 @@
+package ProjectSTLP_App;
+
+import java.net.MalformedURLException;
+import org.openqa.selenium.By;
+import io.appium.java_client.android.AndroidDriver;
+
+public class TC01_SearchIDCardType {
+
+	public static void main(String[] args) throws MalformedURLException, InterruptedException {
+		Utility util = new Utility();
+
+		util.browser_open("D:\\work\\IT496 Project IN Information Technology (AJ.SAYAN)\\APP\\STLPAPP.apk");
+
+		util.button_click("stlpapp.finalproject.app.com.appstlp:id/text01");
+
+		ReadWriteExcel rwe = new ReadWriteExcel();
+		try {
+			rwe.xlRead(
+					"D:\\work\\IT496 Project IN Information Technology (AJ.SAYAN)\\Excel\\TC01_SearchIDCardType.xlsx",
+					0);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+
+		for (int i = 1; i < rwe.xRows; i++) {
+			util.edit_input("stlpapp.finalproject.app.com.appstlp:id/text_searchIdcardtype", rwe.xData[i][2]);
+
+			try {
+				util.button_click("stlpapp.finalproject.app.com.appstlp:id/btn_search");
+			} catch (Exception e) {
+			}
+
+			util.edit_clear("stlpapp.finalproject.app.com.appstlp:id/text_searchIdcardtype");
+
+//			String alert = driver.findElementById("stlpapp.finalproject.app.com.appstlp:id/title_template").getText();
+//			if(alert != null) {
+//				driver.findElement(By.id("android:id/button1")).click();
+//			}
+
+			String expected = util.textbox_getText("stlpapp.finalproject.app.com.appstlp:id/text_searchIdcardtype");
+			System.out.println(expected);
+
+		}
+	}
+}
