@@ -1,0 +1,7 @@
+﻿1. เปิดโปรแกรม MySql Workbench
+2.File --> Open SQL Script
+3.คลิ๊ก Execute the Selected portion of the script or everything, if there is no selection (รูปสายฟ้า)
+
+**หมายเหตุ Username และ Password **
+Username : root
+Password : 1234
