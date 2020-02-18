@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
-		<item value="D:\work\IT496 Project IN Information Technology (AJ.SAYAN)\WebService\ProjectSTLPApplication"/>
+		<item value="D:\work\IT496 Project IN Information Technology (AJ.SAYAN)\webservice\ProjectSTLPApplication"/>
+		<item value="D:\work\IT496 Project IN Information Technology (AJ.SAYAN)\webservice\ProjectSTLPApplication\src"/>
 	</list>
-	<section name="CleanDialogSettings">
-		<item value="662" key="DIALOG_WIDTH"/>
-		<item value="false" key="TOGGLE_SELECTED"/>
-		<item value="452" key="DIALOG_HEIGHT"/>
-		<item value="629" key="DIALOG_X_ORIGIN"/>
-		<item value="214" key="DIALOG_Y_ORIGIN"/>
-	</section>
-	<section name="ExternalProjectImportWizard">
-		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
-		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
-		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
-		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="D:\work\Tester Selenium Workshop\Selenium 26-28 Mar 2019\Selenium 26-28 Mar 2019\SeleniumKDF\MyKdf5"/>
-			<item value="C:\Users\Admin\Desktop\New folder\WebService\ProjectSTLPApplication\testAppium"/>
-			<item value="C:\Users\Admin\Desktop\New folder\WebService\ProjectSTLPApplication"/>
-			<item value="D:\work\IT496 Project IN Information Technology (AJ.SAYAN)\WebService\ProjectSTLPApplication"/>
-		</list>
-		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
-			<item value=""/>
-		</list>
-	</section>
-	<section name="NewWizardAction">
-		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-		</list>
-	</section>
-	<section name="SaveAsDialogSettings">
-		<item value="700" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-		<item value="645" key="DIALOG_HEIGHT"/>
-		<item value="706" key="DIALOG_X_ORIGIN"/>
-		<item value="142" key="DIALOG_Y_ORIGIN"/>
-	</section>
 </section>

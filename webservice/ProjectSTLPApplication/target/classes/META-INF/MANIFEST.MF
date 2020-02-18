@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: ProjectSTLPApplication
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: NickyIT14
+Built-By: Admin
 Implementation-Vendor-Id: com.project
-Build-Jdk: 1.8.0_161
+Build-Jdk: 1.8.0_221
 Implementation-URL: http://projects.spring.io/spring-boot/ProjectSTLPA
  pplication/
 Created-By: Maven Integration for Eclipse
