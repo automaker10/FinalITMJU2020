@@ -15,6 +15,7 @@ public class ManageExcel {
 
 	private String xldata[][];
 
+	//Read data from excel
 	public String[][] xlRead(String sPath, int sheetNo) throws Exception {
 		xldata = null;
 		File myxl = new File(sPath);
@@ -25,8 +26,8 @@ public class ManageExcel {
 		XSSFSheet sheet = wb.getSheetAt(sheetNo); // Referring to 1st sheet
 		xRows = sheet.getLastRowNum() + 1;
 		xCols = sheet.getRow(0).getLastCellNum();
-		System.out.println("Rows " + sheetNo + " are " + xRows);
-		System.out.println("Cols " + sheetNo + " are " + xCols);
+		System.out.println("Rows : " + sheetNo + " are " + xRows);
+		System.out.println("Cols : " + sheetNo + " are " + xCols);
 		xldata = new String[xRows][xCols];
 		for (int i = 0; i < xRows; i++) {
 			XSSFRow row = sheet.getRow(i);
@@ -39,6 +40,7 @@ public class ManageExcel {
 		return xldata;
 	}
 
+	//branch of type cell
 	public String cellToString(XSSFCell cell) {
 
 		CellType type = cell.getCellTypeEnum();
@@ -66,6 +68,7 @@ public class ManageExcel {
 		return result.toString();
 	}
 
+	//Write result to excel
 	public void xlWrite(String xlPath, String[][] xldata, int rows, int cols) throws Exception {
 
 		File outFile = new File(xlPath);

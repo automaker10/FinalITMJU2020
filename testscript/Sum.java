@@ -7,7 +7,7 @@ public class Sum {
 
 	public String Xpath_file;
 	public Sum() throws Exception {
-		String Xpath_file = "F:\\final project\\Excel\\Result\\Old\\";
+		String Xpath_file = "excel/result";
 		String Writefile = "excel/result/testallresult/TestAllRusult.xlsx";
 		
 		String xSum[][];

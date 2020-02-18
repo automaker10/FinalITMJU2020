@@ -38,17 +38,12 @@ public class Keyword {
 
 	private AndroidDriver driver = null;
 	
-	//Driver dr = new Driver();
-	//private AndroidDriver driver2 = null;
-	
 	public Keyword() {
-		//System.out.println("Keyword driver" + driver);
-		//System.out.println("Keyword driver" + StartUp.driver4);
-		driver = StartUp.driver4;
+		driver = StartUp.myDriver;
 	}
 	
 	//OpenApp
-	public void openapp(String namefile) throws InterruptedException, MalformedURLException {
+	public void open_app(String namefile) throws InterruptedException, MalformedURLException {
 		
 		String app = namefile;
 		File apps = new File(app);
@@ -56,7 +51,7 @@ public class Keyword {
 		DesiredCapabilities capabilities = DesiredCapabilities.android();
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
 				
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0.0");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 5 API 27");
 		capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5554");
 		
@@ -66,20 +61,20 @@ public class Keyword {
 		//unicodeKeyboard
 		capabilities.setCapability("unicodeKeyboard","true");
 		
-		if(StartUp.xlPath.contains("TC01_SettingUser")||StartUp.xlPath.contains("TC02_AddNewCropping")
-				||StartUp.xlPath.contains("TC05_UpdateCropDetails")||StartUp.xlPath.contains("TC06_AddNewCroppingStep") 
-				||StartUp.xlPath.contains("TC07_SettingNextStepAlerts") ||StartUp.xlPath.contains("TC09_PlantingComplete")) {
-			driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"),capabilities);
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			StartUp.driver4 = driver;
-		}else {
-			StartUp.driver4 = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"),capabilities);
-			StartUp.driver4.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			driver = StartUp.driver4;
-		}
+//		if(StartUp.xlPath.contains("TC01_SettingUser")||StartUp.xlPath.contains("TC02_AddNewCropping")
+//				||StartUp.xlPath.contains("TC05_UpdateCropDetails")||StartUp.xlPath.contains("TC06_AddNewCroppingStep")
+//				||StartUp.xlPath.contains("TC07_SettingNextStepAlerts") ||StartUp.xlPath.contains("TC09_PlantingComplete")) {
+//			driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"),capabilities);
+//			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//			StartUp.driver4 = driver;
+//		}else {
+//			StartUp.driver4 = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"),capabilities);
+//			StartUp.driver4.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//			driver = StartUp.driver4;
+//		}
 		
-		//driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"),capabilities);
-		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"),capabilities);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 		Thread.sleep(3000);
 	}
@@ -623,27 +618,6 @@ public class Keyword {
 		driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.widget.TableLayout/android.widget.TableRow[2]/android.widget.Button[1]")).click();
 	}
 	
-	//AddNewCroppingStep
-	public void addCroppingStep() {
-		driver.findElement(By.id("com.example.help.cropapplication:id/btn_addNewStep")).click();
-		driver.findElement(By.id("com.example.help.cropapplication:id/editNumberstep")).clear();
-		driver.findElement(By.id("com.example.help.cropapplication:id/editNumberstep")).sendKeys("1"+"\t");
-		driver.findElement(By.id("com.example.help.cropapplication:id/editStepName")).clear();
-		driver.findElement(By.id("com.example.help.cropapplication:id/editStepName")).sendKeys("เพาะเมล็ดพันะธ์"+"\t");
-		driver.findElement(By.id("com.example.help.cropapplication:id/editDetail")).clear();
-		driver.findElement(By.id("com.example.help.cropapplication:id/editDetail")).sendKeys("ซื้อเมล็ดพันธ์"+"\t");
-		driver.findElement(By.id("com.example.help.cropapplication:id/editExpeneses")).clear();
-		driver.findElement(By.id("com.example.help.cropapplication:id/editExpeneses")).sendKeys("800"+"\t");
-		
-		//driver.findElement(By.id("com.example.help.cropapplication:id/editDateStep")).click();
-		//driver.findElement(By.xpath("//android.view.View[@text='25']")).click();	
-		//driver.findElement(By.id("android:id/button1")).click();
-		//driver.findElement(By.id("com.example.help.cropapplication:id/editDateStep")).sendKeys("\t");
-		
-		driver.findElement(By.id("com.example.help.cropapplication:id/buttonAddNewStep")).click();
-		driver.findElement(By.id("android:id/button1")).click();
-	}
-	
 	//AddCroppingandComplete
 	public void CompleteCropping() throws InterruptedException {
 		driver.findElement(By.id("com.example.help.cropapplication:id/buttonSSCrop")).click();
@@ -678,18 +652,13 @@ public class Keyword {
 		}
 	}
 	
-	//Close_Application
-	public void closeapp(){
-		//webDriver.navigate().refresh();
+	//Close_App
+	public void close_app(){
 		driver.quit();
-		//StartUp.driver4.quit();
 	}
 	
 	
 	public void Tests() throws IOException{
-		//webDriver.navigate().refresh();
-		/*String s = driver.switchTo().alert().getText();
-		System.out.println(s);*/
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		 try {
 			FileUtils.copyFile(scrFile, new File("F:\\final project\\ReturnScreen\\Screen"+"OH" +".png"));
