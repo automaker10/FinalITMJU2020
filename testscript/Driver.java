@@ -1,4 +1,4 @@
-package SeleniumTesting;
+package testscript;
 
 import org.openqa.selenium.NoSuchElementException;
 

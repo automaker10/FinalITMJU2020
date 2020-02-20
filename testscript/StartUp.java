@@ -1,4 +1,4 @@
-package SeleniumTesting;
+package testscript;
 
 public class StartUp {
 
@@ -31,7 +31,7 @@ public class StartUp {
 		String xlPath_td = "excel/result/testdata/TDResult_" + filesName[size] + ".xlsx";
 
 		xlPath = "excel" + filesName[size] + ".xlsx";
-		System.out.println("#################################################::" + filesName[size] + "::#################################################");
+		System.out.println("###################" + filesName[size] + "###################");
 
 
 		ManageExcel kdf = new ManageExcel();

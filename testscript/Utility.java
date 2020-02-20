@@ -1,4 +1,4 @@
-package App;
+package testscript;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.PointOption.point;

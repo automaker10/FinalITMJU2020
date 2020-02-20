@@ -1,4 +1,4 @@
-package SeleniumTesting;
+package testscript;
 
 import java.io.File;
 import java.io.FileInputStream;

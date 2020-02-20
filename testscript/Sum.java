@@ -1,4 +1,4 @@
-package TestApplication;
+package testscript;
 
 import java.io.File;
 import java.text.DecimalFormat;
