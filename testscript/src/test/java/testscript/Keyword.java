@@ -78,33 +78,18 @@ public class Keyword {
 
 		Thread.sleep(3000);
 	}
-
-	//Click
-	public void click(String xPath) throws InterruptedException, MalformedURLException {
-		if(!StartUp.xlPath.contains("TC04_ViewCroppingStep") 
-			&& !StartUp.xlPath.contains("TC05_UpdateCropDetails")&& !StartUp.xlPath.contains("TC07_SettingNextStepAlerts") 
-			&& !StartUp.xlPath.contains("TC08_RemoveCroppingStep") && !StartUp.xlPath.contains("TC10_ViewPlantsDisease")) {
-			driver.findElement(By.id(xPath)).click();
-		}else {
-			driver.findElement(By.xpath(xPath)).click();
-		}
-		//driver.findElement(By.id(xPath)).click();
-		//driver.findElement(By.xpath(xPath)).click();
-		//Thread.sleep(2000);
-	}
 	
-	public void clickid(String xPath) throws InterruptedException {	
+	public void button_click_id(String xPath) throws InterruptedException {
 		driver.findElement(By.id(xPath)).click();
 		Thread.sleep(1000);
 	}
-	public void clickxpath(String xPath) throws InterruptedException {	
+	public void button_click(String xPath) throws InterruptedException {
 		driver.findElement(By.xpath(xPath)).click();
 		Thread.sleep(1000);
 	}
 	
 	//Acceptalert
 	public void Acceptalert(int n) throws InterruptedException {	
-		//System.out.println("Number : " + n);
 		if(StartUp.xlPath.contains("TC08_RemoveCroppingStep")) {
 			if(n == 2) {
 				driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v7.widget.LinearLayoutCompat/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button")).click();
@@ -129,7 +114,7 @@ public class Keyword {
 	}
 	
 	//tapByCoordinates
-	public void tapByCoordinates(int xPath,int yPath) throws InterruptedException {	
+	public void tapByCoordinates(int xPath,int yPath) throws InterruptedException {
 		MyMobileActions myMobileActions = new MyMobileActions(driver);
 		//myMobileActions.pressByCoordinates(xPath, yPath, seconds);
 		myMobileActions.tapByCoordinates(xPath, yPath);
@@ -149,24 +134,6 @@ public class Keyword {
 		//String s = driver.findElement(By.id(xPath)).getText();
 		String s = driver.findElement(By.xpath(xPath)).getText();
 		//System.out.println(s);
-	}
-
-	//Spinner_select
-	public void spinner_select(String xPath, String stext) {
-		driver.findElement(By.id("com.example.help.cropapplication:id/spinnerplant")).click();
-		
-		List<AndroidElement> radio = driver.findElements(By.id(xPath));
-	     for (int i=0 ; i <radio.size() ; i++) {
-	    	if (radio.get(i).getText().toString().equals(stext)) {
-	    		radio.get(i).click();
-	    		break;
-	        }
-	    	 
-	    	if(i == radio.size()-1) {
-	    		radio.get(0).click();
-	    		break;
-	    	}
-	     }
 	}
 
 	//Date
@@ -407,9 +374,6 @@ public class Keyword {
 	
 	//checkError
 	public void checkError(String xlsxResult,String xError) {
-		//System.out.println("checkError : "+xError);
-		//System.out.println("checkError xlsxResult : " + xlsxResult);
-		//System.out.println("StartUp.cError : " + StartUp.cError);
 		try {
 			if(StartUp.vError.equalsIgnoreCase("No Error")) {  //No Error
 				try{					
@@ -478,7 +442,7 @@ public class Keyword {
 			//System.out.println(driver.findElement(By.id("android:id/message")).getText());
 			if(driver.findElement(By.id("android:id/message")).getText().toString() != null) {
 				String result = driver.findElement(By.id("android:id/message")).getText();
-				StartUp.cError = result;
+				StartUp.xError = result;
 				//StartUp.vError = result;
 			}
 		}catch(Exception e) {
@@ -486,7 +450,7 @@ public class Keyword {
 			/*if(StartUp.xlPath.contains("TC09_PlantingComplete")) {
 				StartUp.cError = "No alert";
 			}*/
-			StartUp.cError = "No alert";
+			StartUp.xError = "No alert";
 			//StartUp.vError = "No Error";
 			
 		}
@@ -539,107 +503,7 @@ public class Keyword {
 		
 		driver.findElement(By.id("com.example.help.cropapplication:id/buttonlogin")).click();
 	}
-	
-	//AddCorp
-	public void addCorp() throws InterruptedException {
-			//driver.findElement(By.id("com.example.help.cropapplication:id/imageButton2")).click();
-			//driver.findElement(By.id("com.example.help.cropapplication:id/spinnerplant")).click();
-		
-		driver.findElement(By.id("com.example.help.cropapplication:id/imageButton2")).click();
-		driver.findElement(By.id("com.example.help.cropapplication:id/spinnerplant")).click();
-			String select = "ข้าวโพด";
-			List<AndroidElement> radio = driver.findElements(By.id("android:id/text1")); //driver
-		     for (int i=0 ; i <radio.size() ; i++) {
-		    	 if (radio.get(i).getText().toString().equals(select)) {
-		    		 radio.get(i).click();
-		    		 break;
-		        }
-		    	 if(i == radio.size()-1) {
-		    		 radio.get(0).click();
-		    		 break;
-		    	 }
-		     }
-		    
-		    driver.findElement(By.id("com.example.help.cropapplication:id/editTextarea")).sendKeys("10");
-		    driver.findElement(By.id("com.example.help.cropapplication:id/editTextexoectedProfit")).sendKeys("10000");
-		    driver.findElement(By.id("com.example.help.cropapplication:id/editTextexoectedInves")).sendKeys("20000" + "\t");
-			
-		    //driver.findElement(By.id("com.example.help.cropapplication:id/editTextdatecropping")).click();
-		    //driver.findElement(By.xpath("//android.view.View[@text='28']")).click();	
-			//driver.findElement(By.id("android:id/button1")).click();
-		    //driver.findElement(By.id("com.example.help.cropapplication:id/editTextdatecropping")).sendKeys("\t");
-		    
-		    driver.findElement(By.id("com.example.help.cropapplication:id/button")).click();
-		    driver.findElement(By.id("android:id/button1")).click();
-			
-		    Thread.sleep(3000);
-		    driver.findElement(By.id("com.example.help.cropapplication:id/buttonblacktomenu")).click();
-	}
-	
-	//AddCorp
-	public void addnewCorp() throws InterruptedException {
-		driver.findElement(By.id("com.example.help.cropapplication:id/imageButton2")).click();
-		driver.findElement(By.id("com.example.help.cropapplication:id/spinnerplant")).click();
-			String select = "ข้าวโพด";
-			List<AndroidElement> radio = driver.findElements(By.id("android:id/text1"));
-			    for (int i=0 ; i <radio.size() ; i++) {
-			    	 if (radio.get(i).getText().toString().equals(select)) {
-			    		 radio.get(i).click();
-			    		 break;
-			        }
-			    	 if(i == radio.size()-1) {
-			    		 radio.get(0).click();
-			    		 break;
-			    	 }
-			     }
-			    
-		 driver.findElement(By.id("com.example.help.cropapplication:id/editTextarea")).sendKeys("10");
-		 driver.findElement(By.id("com.example.help.cropapplication:id/editTextexoectedProfit")).sendKeys("10000");
-		 driver.findElement(By.id("com.example.help.cropapplication:id/editTextexoectedInves")).sendKeys("20000" + "\t");
-				
-			    //driver.findElement(By.id("com.example.help.cropapplication:id/editTextdatecropping")).click();
-			    //driver.findElement(By.xpath("//android.view.View[@text='28']")).click();	
-				//driver.findElement(By.id("android:id/button1")).click();
-			    //driver.findElement(By.id("com.example.help.cropapplication:id/editTextdatecropping")).sendKeys("\t");
-			    
-		driver.findElement(By.id("com.example.help.cropapplication:id/button")).click();
-		driver.findElement(By.id("android:id/button1")).click();
-				
-	    Thread.sleep(3000);
-	}
-	
-	//ListCropping
-	public void listCropping() {
-		driver.findElement(By.id("com.example.help.cropapplication:id/imageButton3")).click();
-	}
-	
-	//ClickViewCroppingStep
-	public void viewCroppingStep() {
-		driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.widget.TableLayout/android.widget.TableRow[2]/android.widget.Button[1]")).click();
-	}
-	
-	//AddCroppingandComplete
-	public void CompleteCropping() throws InterruptedException {
-		driver.findElement(By.id("com.example.help.cropapplication:id/buttonSSCrop")).click();
-		
-		driver.findElement(By.id("com.example.help.cropapplication:id/editText")).clear();
-		driver.findElement(By.id("com.example.help.cropapplication:id/editText")).sendKeys("22000");
-		driver.findElement(By.id("com.example.help.cropapplication:id/button2")).click();
-		Thread.sleep(5000);
-		
-		driver.pressKey(new KeyEvent(AndroidKey.BACK));
-		driver.pressKey(new KeyEvent(AndroidKey.BACK));
-		driver.pressKey(new KeyEvent(AndroidKey.BACK));
-	    driver.findElement(By.id("com.example.help.cropapplication:id/buttonblacktomenu")).click();
-	    driver.findElement(By.id("com.example.help.cropapplication:id/imageButton4")).click();
-	    driver.findElement(By.className("android.widget.Button")).click();
-	    Thread.sleep(2000);
-	    
-	    //System.out.println("H1 : " + driver.findElement(By.id("com.example.help.cropapplication:id/txtName_")).getText());
-	    //System.out.println("=========================");
 
-	}
-	
 	public void saveScreen(int index,String name) throws InterruptedException{	
 		//System.out.println("saveScreen" + "index : " + index + " name : " + name);
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -656,8 +520,7 @@ public class Keyword {
 	public void close_app(){
 		driver.quit();
 	}
-	
-	
+
 	public void Tests() throws IOException{
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		 try {
@@ -669,9 +532,12 @@ public class Keyword {
 			
 		}
 	}
-	
-	public void TestAdd(){
-		driver.findElement(By.id("com.example.help.cropapplication:id/imageButton2")).click();
-		driver.findElement(By.id("com.example.help.cropapplication:id/button")).click();
+
+	public boolean check_text(String xlsxResult, String checkError) throws IOException {
+		if(xlsxResult.contains(StartUp.xAlert) == true) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 }

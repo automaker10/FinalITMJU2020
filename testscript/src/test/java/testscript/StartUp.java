@@ -1,11 +1,17 @@
 package testscript;
 
+import io.appium.java_client.android.AndroidDriver;
+
 public class StartUp {
 
 	public static String vResult, vError, vflag;
 	public static String xTDdata[][];
-	public static String Expectedresult, xlPath;
-	public static int xResult, xError, error_img;
+	public static String Expectedresult;
+	public static String xlPath;
+	public static AndroidDriver myDriver;
+	public static int xResult;
+	public static String xError;
+	public static int error_img;
 	public static String errorIMG;
 	public static String xAlert,xTypeCheck;
 	
@@ -15,10 +21,11 @@ public class StartUp {
 	//TC-01
 	public static String vPersonID;
 
-	Driver myDriver = new Driver();
 
 	public static void main(String[] args) throws Exception {
-		
+
+		Driver myDriver = new Driver();
+
 		String[] filesName = { "TC01_SearchIDCardType", "TC02_CreateUser", "TC03_Login", "TC04_AddMoreRequest", "TC05_SelectStaffForRequest"
 				, "TC06_GiveSuggestion", "TC07_AnswerMoreRequest", "TC08_RequestForHelp" };
 		for (int size = 0; size < filesName.length; size++) {

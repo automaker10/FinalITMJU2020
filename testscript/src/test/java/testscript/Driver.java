@@ -15,45 +15,56 @@ public class Driver {
 
 		try {
 			if (vKeyword.equals("open_app")) {
-				keyword.browser_open(getIP(vIP1));
+				keyword.open_app(getIP(vIP1));
 				flag = "True";
 				return "pass";
 			}
-			if (vKeyword.equals("radio_select")) {
-				keyword.radio_select(getIP(vIP1), getIP(vIP2));
+			if (vKeyword.equals("inputTime")) {
+				keyword.inputTime(getIP(vIP1), getIP(vIP2));
 				flag = "True";
 				return "pass";
 			}
-			if (vKeyword.equals("edit_input")) {
-				keyword.edit_input(getIP(vIP1), getIP(vIP2));
+			if (vKeyword.equals("edit_Text")) {
+				keyword.edit_Text(getIP(vIP1), getIP(vIP2));
 				flag = "True";
 				return "pass";
 			}
-			if (vKeyword.equalsIgnoreCase("image_click")) {
-				keyword.image_click(getIP(vIP1), getIP(vIP2));
+			if (vKeyword.equals("select_date")) {
+				keyword.select_date(getIP(vIP1), getIP(vIP2));
 				flag = "True";
 				return "pass";
 			}
-			if (vKeyword.equals("list_select")) {
-				keyword.list_select(getIP(vIP1), getIP(vIP2));
+			if (vKeyword.equals("checkError")) {
+				keyword.checkError(getIP(vIP1), getIP(vIP2));
 				flag = "True";
 				return "pass";
 			}
-			if (vKeyword.equals("checkbox_set")) {
-				keyword.checkbox_set(getIP(vIP1), getIP(vIP2));
+			if (vKeyword.equals("setcError")) {
+				keyword.setcError();
 				flag = "True";
 				return "pass";
 			}
-			if (vKeyword.equals("button_click_order")) {
-				keyword.button_click_order(getIP(vIP1));
+			if (vKeyword.equals("toBack")) {
+				keyword.toBack();
 				flag = "True";
 				return "pass";
 			}
-			if (vKeyword.equals("button_click")) {
-				keyword.button_click(getIP(vIP1));
+			if (vKeyword.equals("get_Text")) {
+				keyword.get_Text(getIP(vIP1));
 				flag = "True";
 				return "pass";
 			}
+			if (vKeyword.equals("setvError")) {
+				keyword.setvError();
+				flag = "True";
+				return "pass";
+			}
+			if (vKeyword.equals("toTouchAction")) {
+				keyword.toTouchAction();
+				flag = "True";
+				return "pass";
+			}
+
 			if (vKeyword.equals("dialog_click")) {
 				boolean works = keyword.dialog_click();
 				if (works) {
