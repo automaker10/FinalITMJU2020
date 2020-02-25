@@ -10,7 +10,7 @@ public class StartUp {
 	public static String xlPath;
 	public static AndroidDriver myDriver;
 	public static int xResult;
-	public static String xError;
+	public static int xError;
 	public static int error_img;
 	public static String errorIMG;
 	public static String xAlert,xTypeCheck;
@@ -84,14 +84,14 @@ public class StartUp {
 												xTDdata[k][xResult] = "Fail";
 												if(xTypeCheck.equals("dialog")) {
 													if(!xAlert.equals("No Found Alert")) {
-														myDriver.getKeyword().saveScreen();
+														myDriver.getKeyword().saveScreen(k,filesName[i]);
 														xTDdata[k][xError] = "Alert message : " + xAlert;
 													}else {
-														myDriver.getKeyword().saveScreen();
+														myDriver.getKeyword().saveScreen(k,filesName[i]);
 														xTDdata[k][xError] = xAlert;
 													}
 												}else {
-													myDriver.getKeyword().saveScreen();
+													myDriver.getKeyword().saveScreen(k,filesName[i]);
 													xTDdata[k][xError] = xAlert;
 												}
 												

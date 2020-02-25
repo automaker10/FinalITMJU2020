@@ -17,10 +17,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.tools.ant.taskdefs.WaitFor;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileElement;
@@ -353,23 +355,23 @@ public class Keyword {
 		try{
 			if(StartUp.xlPath.contains("01_SettingUser")) {
 				driver.findElement(By.id(xPath)).getText();
-				StartUp.cResult = cExpectedResult;
+				StartUp.vResult = cExpectedResult;
 			}else if(StartUp.xlPath.contains("TC02_AddNewCropping") || StartUp.xlPath.contains("TC04_ViewCroppingStep") ||StartUp.xlPath.contains("TC12_DeleteCropHistory") 
 				|| StartUp.xlPath.contains("TC10_ViewPlantsDisease")|| StartUp.xlPath.contains("TC11_ViewCropHistory") || StartUp.xlPath.contains("07_SettingNextStepAlerts")
 				|| StartUp.xlPath.contains("09_PlantingComplete")){
-				StartUp.cResult = driver.findElement(By.id(xPath)).getText().toString();
+				StartUp.vResult = driver.findElement(By.id(xPath)).getText().toString();
 			}else if(StartUp.xlPath.contains("03_ListCropping") || StartUp.xlPath.contains("08_RemoveCroppingStep") || StartUp.xlPath.contains("05_UpdateCropDetails")
 				|| StartUp.xlPath.contains("06_AddNewCroppingStep")) {
-				StartUp.cResult = driver.findElement(By.xpath(xPath)).getText().toString();
+				StartUp.vResult = driver.findElement(By.xpath(xPath)).getText().toString();
 			}else if(StartUp.xlPath.contains("13_BackupHistoryToWebsite")) {
-				StartUp.cResult = cExpectedResult;
+				StartUp.vResult = cExpectedResult;
 			}
 				
 		}catch(Exception e) {
-			StartUp.cResult = "Fail";
+			StartUp.vResult = "Fail";
 		}
 		
-		System.out.println(" StartUp.cResult : " + StartUp.cResult);
+		System.out.println(" StartUp.cResult : " + StartUp.vResult);
 	}
 	
 	//checkError
@@ -381,25 +383,25 @@ public class Keyword {
 						if(xError.contains(xlsxResult)){
 							StartUp.vError = "No Error"; //+ xError
 							StartUp.vResult = "Pass";
-						}else if(StartUp.cError.equals(xlsxResult)||StartUp.cError.contains(xlsxResult)) {
+						}else if(StartUp.vError.equals(xlsxResult)||StartUp.vError.contains(xlsxResult)) {
 							StartUp.vError = "No Error" ;//+ xError
 							StartUp.vResult = "Pass";
 						}else {
 							System.out.println("checkError : "+xError);
 							System.out.println("checkError xlsxResult : " + xlsxResult);
-							StartUp.vError = "Not match " + StartUp.cError;//xError
+							StartUp.vError = "Not match " + StartUp.vError;//xError
 							StartUp.vResult = "Fail";
 							saveScreen(StartUp.a,StartUp.TCname);
 						}
 								
 					}else {
-						if(StartUp.cError.contains(xlsxResult)){//StartUp.cError.equals("No Error")
+						if(StartUp.vError.contains(xlsxResult)){//StartUp.cError.equals("No Error")
 							StartUp.vError = "No Error";
 							StartUp.vResult = "Pass";							
 						}else if(StartUp.xlPath.contains("12_DeleteCropHistory") && xlsxResult.equals("ลบพืชที่ทำการเลือก")) {
 							StartUp.vError = "No Error" ;//+ xError
 							StartUp.vResult = "Pass";
-						}else if(StartUp.cError.equals("No alert")) {
+						}else if(StartUp.vError.equals("No alert")) {
 							StartUp.vError = "No alert";
 							StartUp.vResult = "Fail";
 							saveScreen(StartUp.a,StartUp.TCname);
@@ -412,10 +414,7 @@ public class Keyword {
 					}
 											
 				}catch(Exception e) {
-					//e.getMessage();
-					/* StartUp.vError = "Not found";
-					StartUp.vResult = "Fail"; */
-					//setvError(dr.a,dr.TCname);
+					e.printStackTrace();
 				}
 			}else {											//Error
 				try {
@@ -442,20 +441,13 @@ public class Keyword {
 			//System.out.println(driver.findElement(By.id("android:id/message")).getText());
 			if(driver.findElement(By.id("android:id/message")).getText().toString() != null) {
 				String result = driver.findElement(By.id("android:id/message")).getText();
-				StartUp.xError = result;
-				//StartUp.vError = result;
+				StartUp.vError = result;
 			}
 		}catch(Exception e) {
 			e.getMessage();
-			/*if(StartUp.xlPath.contains("TC09_PlantingComplete")) {
-				StartUp.cError = "No alert";
-			}*/
-			StartUp.xError = "No alert";
-			//StartUp.vError = "No Error";
-			
+			StartUp.vError = "No alert";
+
 		}
-		
-		//System.out.println("StartUp.cError : " + StartUp.cError);
 	}
 		
 	//SetvError
@@ -468,13 +460,7 @@ public class Keyword {
 			}
 		}catch(Exception e) {
 			StartUp.vError = "No Error";
-			/*File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			 try {
-				FileUtils.copyFile(scrFile, new File("F:\\final project\\ReturnScreen\\Screen"+name + index +".png"));
-				System.out.println("In tey : " + index);
-			 } catch (IOException e1) {
-				e1.printStackTrace();
-			 }*/
+			e.printStackTrace();
 		}
 			
 		//System.out.println("StartUp.vError : " + StartUp.vError);
@@ -505,13 +491,10 @@ public class Keyword {
 	}
 
 	public void saveScreen(int index,String name) throws InterruptedException{	
-		//System.out.println("saveScreen" + "index : " + index + " name : " + name);
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		 try {
-			FileUtils.copyFile(scrFile, new File("F:\\final project\\ReturnScreen\\Screen"+name +"_TD"+ index +".png"));
-			//System.out.println("In tey : " + index);
+			FileUtils.copyFile(scrFile, new File("D:\\work\\IT496 Project IN Information Technology (AJ.SAYAN)\\screenshots"+name +"_TD"+ index +".png"));
 		 } catch (IOException e) {
-			//System.out.println("catch ");
 			e.printStackTrace();
 		}
 	}
@@ -539,5 +522,20 @@ public class Keyword {
 		}else {
 			return false;
 		}
+	}
+
+	public boolean dialog_click() {
+		String text ="";
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = driver.switchTo().alert();
+		text = alert.getText();
+		alert.accept();
+		String[] temp = text.split(":");
+
+		if (temp[0].trim().equals("ข้อมูลผิดพลาด"))		//แก้ไขเพิ่มเติม
+			return false;
+		else
+			return true;
 	}
 }

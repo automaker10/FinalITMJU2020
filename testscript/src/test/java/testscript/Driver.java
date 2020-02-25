@@ -75,16 +75,6 @@ public class Driver {
 					return "fail";
 				}
 			}
-			if (vKeyword.equals("check_list")) {
-				keyword.check_list(getIP(vIP1), getIP(vIP2));
-				flag = "True";
-				return "pass";
-			}
-			if (vKeyword.equals("pause_data")) {
-				keyword.pause_data();
-				flag = "True";
-				return "pass";
-			}
 			if (vKeyword.equals("close_app")) {
 				keyword.close_app();
 				flag = "True";
