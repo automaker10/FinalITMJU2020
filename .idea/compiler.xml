@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Appium2" />
         <module name="testscript" />
         <module name="ProjectSTLPApplication" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Appium2" target="1.5" />
       <module name="ProjectSTLPApplication" target="1.8" />
       <module name="testscript" target="8" />
     </bytecodeTargetLevel>

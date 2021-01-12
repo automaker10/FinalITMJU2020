@@ -5,8 +5,9 @@
       <list>
         <option value="$PROJECT_DIR$/testscript/pom.xml" />
         <option value="$PROJECT_DIR$/webservice/ProjectSTLPApplication/pom.xml" />
+        <option value="$PROJECT_DIR$/Oh/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="IntelliJ IDEA Community Edition IC-192.7142.36" project-jdk-type="IDEA JDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8.0_201" project-jdk-type="JavaSDK" />
 </project>
